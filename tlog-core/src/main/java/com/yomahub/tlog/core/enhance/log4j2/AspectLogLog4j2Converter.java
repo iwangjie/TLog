@@ -16,7 +16,7 @@
  */
 package com.yomahub.tlog.core.enhance.log4j2;
 
-import cn.hutool.core.util.StrUtil;
+import com.yomahub.tlog.utils.StrUtil;
 import com.yomahub.tlog.constant.TLogConstants;
 import com.yomahub.tlog.context.TLogContext;
 import com.yomahub.tlog.core.context.AspectLogContext;

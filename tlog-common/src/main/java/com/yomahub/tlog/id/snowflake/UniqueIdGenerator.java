@@ -1,6 +1,7 @@
 package com.yomahub.tlog.id.snowflake;
 
-import cn.hutool.core.lang.Assert;
+
+import com.yomahub.tlog.utils.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.net.InetAddress;
@@ -104,7 +105,7 @@ public class UniqueIdGenerator {
      */
     public static Long generateId() {
         long time = clock.millis();
-        Assert.isTrue(lastTime <= time, "Clock is moving backwards, last time is {} milliseconds, current time is {} milliseconds", lastTime, time);
+        Assert.isTrue(lastTime <= time, "Clock is moving backwards, last time is " + lastTime + " milliseconds, current time is " + time + " milliseconds");
         if (lastTime == time) {
             if (0L == (sequence = ++sequence & SEQUENCE_MASK)) {
                 time = waitUntilNextTime(time);

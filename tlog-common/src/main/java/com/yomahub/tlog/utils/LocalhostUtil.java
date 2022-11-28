@@ -1,9 +1,9 @@
 package com.yomahub.tlog.utils;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.exceptions.UtilException;
-import cn.hutool.core.lang.Filter;
-import cn.hutool.core.util.StrUtil;
+
+import com.yomahub.tlog.exception.UtilException;
+import com.yomahub.tlog.function.Filter;
+import com.yomahub.tlog.utils.StrUtil;
 import com.yomahub.tlog.constant.TLogConstants;
 
 import java.net.*;
@@ -57,7 +57,7 @@ public class LocalhostUtil {
                     && address instanceof Inet4Address;
         });
 
-        if (CollUtil.isNotEmpty(localAddressList)) {
+        if (CollectionUtil.isNotEmpty(localAddressList)) {
             InetAddress address2 = null;
             for (InetAddress inetAddress : localAddressList) {
                 if (!inetAddress.isSiteLocalAddress()) {

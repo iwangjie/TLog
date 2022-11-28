@@ -1,12 +1,11 @@
 package com.yomahub.tlog.spring;
 
-import cn.hutool.core.util.BooleanUtil;
-import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import com.yomahub.tlog.context.TLogContext;
 import com.yomahub.tlog.context.TLogLabelGenerator;
 import com.yomahub.tlog.id.TLogIdGenerator;
 import com.yomahub.tlog.id.TLogIdGeneratorLoader;
+import com.yomahub.tlog.utils.BooleanUtil;
+import com.yomahub.tlog.utils.StrUtil;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
@@ -31,7 +30,7 @@ public class TLogPropertyInit implements InitializingBean {
             TLogLabelGenerator.setLabelPattern(pattern);
         }
 
-        if (ObjectUtil.isNotNull(enableInvokeTimePrint)){
+        if (null != enableInvokeTimePrint){
             TLogContext.setEnableInvokeTimePrint(enableInvokeTimePrint);
         }
 

@@ -1,7 +1,5 @@
 package com.yomahub.tlog.core.enhance.log4j2;
 
-import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.yomahub.tlog.constant.TLogConstants;
 import com.yomahub.tlog.context.TLogContext;
@@ -17,7 +15,6 @@ import org.apache.logging.log4j.util.PerformanceSensitive;
 import org.apache.logging.log4j.util.ReadOnlyStringMap;
 import org.apache.logging.log4j.util.StringBuilders;
 import org.apache.logging.log4j.util.TriConsumer;
-import org.slf4j.MDC;
 
 /**
  * log4j2的MDC converter<br>
@@ -115,9 +112,9 @@ public final class AspectLogLog4j2MDCConverter extends LogEventPatternConverter 
                 // otherwise they just want a single key output
                 Object value = contextData.getValue(key);
                 if (key.equals(TLogConstants.MDC_KEY)){
-                    if (ObjectUtil.isNull(value)){
+                    if (null == value){
                         value = ThreadContext.get(TLogConstants.MDC_KEY);
-                        if (ObjectUtil.isNull(value)){
+                        if (null == value){
                             value = AspectLogContext.getLogValue();
                         }
                     }

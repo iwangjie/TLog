@@ -1,7 +1,7 @@
 package com.yomahub.tlog.core.enhance.bytes.log4j;
 
-import cn.hutool.core.util.ReflectUtil;
-import cn.hutool.core.util.StrUtil;
+import com.yomahub.tlog.utils.ReflectUtil;
+import com.yomahub.tlog.utils.StrUtil;
 import com.yomahub.tlog.core.context.AspectLogContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.AppenderSkeleton;

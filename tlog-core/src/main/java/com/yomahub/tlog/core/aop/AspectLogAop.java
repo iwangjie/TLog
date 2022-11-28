@@ -1,8 +1,5 @@
 package com.yomahub.tlog.core.aop;
 
-import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.ql.util.express.DefaultContext;
 import com.ql.util.express.ExpressRunner;
@@ -12,6 +9,8 @@ import com.yomahub.tlog.core.annotation.TLogAspect;
 import com.yomahub.tlog.core.context.AspectLogContext;
 import com.yomahub.tlog.core.convert.AspectLogConvert;
 import com.yomahub.tlog.exception.TLogCustomLabelExpressionException;
+import com.yomahub.tlog.utils.MapUtil;
+import com.yomahub.tlog.utils.StrUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -21,6 +20,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -119,12 +119,12 @@ public class AspectLogAop {
             context.put("map", map);
             Object value = expressRunner.execute(instructionSet, context, errorList, true, false, null);
 
-            if (ObjectUtil.isNull(value)){
+            if (null == value){
                 return null;
             }
-            if (ObjectUtil.isBasicType(value)){
+            if (value instanceof String || value instanceof Integer || value instanceof Long || value instanceof Boolean) {
                 return value.toString();
-            }else{
+            } else {
                 return JSON.toJSONString(value);
             }
         }catch (Throwable t){

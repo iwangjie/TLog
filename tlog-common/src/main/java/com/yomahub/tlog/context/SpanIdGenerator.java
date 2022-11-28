@@ -1,7 +1,8 @@
 package com.yomahub.tlog.context;
 
-import cn.hutool.core.util.StrUtil;
+import com.yomahub.tlog.utils.StrUtil;
 import com.alibaba.ttl.TransmittableThreadLocal;
+import com.yomahub.tlog.utils.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import java.util.concurrent.atomic.AtomicInteger;
 

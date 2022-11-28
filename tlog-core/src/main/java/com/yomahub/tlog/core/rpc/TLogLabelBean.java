@@ -1,7 +1,5 @@
 package com.yomahub.tlog.core.rpc;
 
-import cn.hutool.core.util.ObjectUtil;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -79,7 +77,7 @@ public class TLogLabelBean implements Serializable {
     }
 
     public void putExtData(String key, Object value){
-        if (ObjectUtil.isNull(extData)){
+        if (null == extData){
             extData = new HashMap<>();
         }
         extData.put(key, value);
